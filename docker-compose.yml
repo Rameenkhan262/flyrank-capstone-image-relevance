@@ -1,0 +1,19 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: flyrank-image-postgres
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_DB: image_relevance
+      POSTGRES_USER: image_admin
+      POSTGRES_PASSWORD: image_dev_password
+
+    ports:
+      - "5434:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
